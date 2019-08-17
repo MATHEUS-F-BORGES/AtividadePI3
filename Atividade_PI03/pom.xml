@@ -7,24 +7,31 @@
     <packaging>jar</packaging>
     
     <organization>
-    <name>        Turma A </name>
+    <name>   Turma A </name>
     </organization>
     
     <developers>
     
     <developer>
-        <id>fernandasnunes</id>
+        <id>Fe</id>
         <name> Fernanda Nunes </name>
+        </developer>
+        <developer>
+        <id>Math</id>
         <name> Matheus Borges</name>
-          <name>  Raffael Moraes </name>
-
-          <name>  Rafael Dini </name>
-           <name>  Victor Serafim </name>
-
-
-        
-        
-    </developer>
+        </developer>
+        <developer>
+        <id>Raffael W</id>
+        <name> Raffael W de Moraes</name>
+        </developer>
+        <developer>
+        <id>Raffael Dini</id>
+        <name> Raffael Dini</name>
+        </developer>
+        <developer>
+        <id>Victor</id>
+        <name> Victor Serafim</name>
+        </developer>
     </developers>
     
     <dependencies>
@@ -42,5 +49,5 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-    <name>GerenciadordeProdutos</name>
+    <name>Gerenciador de Produtos</name>
 </project>
