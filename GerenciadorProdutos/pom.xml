@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.tads.pi3</groupId>
+    <artifactId>GerenciadorProdutos</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    
+     <organization>
+        <name>Senac TADS PI3 - Turma B - 2019 semestre 2</name>
+    </organization>
+    
+    <developers>
+        <developer>
+            <id>MATHEUS-F-BORGES</id> <!-- username no Github -->
+            <name>Matheus Fonseca Borges De Oliveira</name>
+        </developer>
+        <developer>
+            <id>velxp2</id>
+            <name>Victor Serafim</name>
+        </developer>
+        <developer>
+            <id>rafaeldini</id>
+            <name>Rafael Dini</name>
+        </developer>
+         <developer>
+            <id>fernandanunes</id>
+            <name>Fernanda Nunes</name>
+        </developer>
+         <developer>
+            <id>RaffaelIW</id>
+            <name>Raffael Moraes</name>
+        </developer>
+    </developers>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    
+    <dependencies>
+        <!--https://mvnrepository.com/artifact/mysql/mysql-connector-java-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.17</version>
+        </dependency>
+    </dependencies>
+    <name>GerenciadorProdutos</name>
+</project>
