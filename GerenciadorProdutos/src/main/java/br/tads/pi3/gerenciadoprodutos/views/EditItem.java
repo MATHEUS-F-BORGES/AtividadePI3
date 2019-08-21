@@ -5,17 +5,22 @@
  */
 package br.tads.pi3.gerenciadoprodutos.views;
 
-/**
- * @author pedro
- */
-public class EditItem extends javax.swing.JFrame {
+import br.tads.pi3.gerenciadoprodutos.database.daoProduto;
+import br.tads.pi3.gerenciadoprodutos.models.Produto;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
-	/**
-	 * Creates new form AddItem
-	 */
+public class EditItem extends javax.swing.JFrame {
+    
+    Produto prodAtualizado = new Produto();
+    
+
+    
 	public EditItem() {
 
 		initComponents();
+                
 	}
 
 	/**
@@ -41,8 +46,8 @@ public class EditItem extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jSpinner1 = new javax.swing.JSpinner();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,8 +89,18 @@ public class EditItem extends javax.swing.JFrame {
         jLabel7.setText("Edição de Item");
 
         jButton1.setText("Editar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -109,7 +124,7 @@ public class EditItem extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -146,9 +161,9 @@ public class EditItem extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,6 +188,37 @@ public class EditItem extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+ 
+        prodAtualizado.setNome(jTextField1.getText());
+        prodAtualizado.setDescricao(jTextArea1.getText());
+        int quantidade = Integer.parseInt(jTextField3.getText());
+        prodAtualizado.setQuantidade(quantidade);
+        float pCompra = Float.parseFloat(jTextField4.getText());
+        prodAtualizado.setpCompra(pCompra);
+        float pVenda = Float.parseFloat(jTextField2.getText());
+        prodAtualizado.setpVenda(pVenda);
+                
+            try {
+                daoProduto.atualizar(prodAtualizado);
+                JOptionPane.showMessageDialog(rootPane, "Produto alterado com sucesso",
+                        "CADASTRO EFETUADO ", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+                
+            } catch (Exception ex) {
+                Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(rootPane, "Falha ao Atualizar",
+                        "ERRO ", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 	private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
 		// :event_jTextField1ActionPerformed
@@ -228,6 +274,18 @@ public class EditItem extends javax.swing.JFrame {
 			}
 		});
 	}
+        
+        public void atualizarCampos (Produto produto){
+         
+            jTextField1.setText(produto.getNome());
+            jTextArea1.setText(produto.getDescricao());
+            jTextField3.setText(Integer.toString(produto.getQuantidade()));
+            jTextField2.setText(Float.toString(produto.getpVenda()));
+            jTextField4.setText(Float.toString(produto.getpCompra()));
+            prodAtualizado.setID(produto.getID());
+            
+        
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -241,10 +299,10 @@ public class EditItem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

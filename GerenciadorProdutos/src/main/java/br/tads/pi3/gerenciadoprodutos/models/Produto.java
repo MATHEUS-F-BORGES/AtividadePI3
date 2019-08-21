@@ -5,13 +5,17 @@
  */
 package br.tads.pi3.gerenciadoprodutos.models;
 
+import java.util.List;
+
 /**
  *
  * @author Matheus
  */
 public class Produto {
     
-    private String nome;
+        private Integer ID;
+    
+        private String nome;
 
 	private String descricao;
 
@@ -23,7 +27,7 @@ public class Produto {
         
         private boolean flag;
         
-	//private Categoria categoria;
+	private List<Categoria> categoria;
 
     public Produto(String nome, String descricao, float pCompra, float pVenda, int quantidade) {
         this.nome = nome;
@@ -83,6 +87,22 @@ public class Produto {
 
     public void setFlag(boolean flag) {
         this.flag = flag;
+    }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    public List<Categoria> getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(List<Categoria> categoria) {
+        this.categoria = categoria;
     }
 
 	

@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 public class AddItem extends javax.swing.JFrame {
 
-        private Produto produto = new Produto();
+        private final Produto produto = new Produto();
 	
 	public AddItem() {
 
@@ -188,31 +188,35 @@ public class AddItem extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-//        produto.setNome(jTextField1.getText());
-//        produto.setDescricao(jTextArea1.getText());
-//        int quantidade = Integer.parseInt(jTextFieldQuantidade.getText());
-//        produto.setQuantidade(quantidade);
-//        float pCompra = Float.parseFloat(jTextField4.getText());
-//        produto.setpCompra(pCompra);
-//        float pVenda = Float.parseFloat(jTextField2.getText());
-//        produto.setpVenda(pVenda);
-//                
+        produto.setNome(jTextField1.getText());
+        produto.setDescricao(jTextArea1.getText());
+        int quantidade = Integer.parseInt(jTextFieldQuantidade.getText());
+        produto.setQuantidade(quantidade);
+        float pCompra = Float.parseFloat(jTextField4.getText());
+        produto.setpCompra(pCompra);
+        float pVenda = Float.parseFloat(jTextField2.getText());
+        produto.setpVenda(pVenda);
+                
             try {
                 daoProduto.inserir(produto);
             } catch (Exception ex) {
                 Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(rootPane, "Falha ao cadastrar",
+                        "ERRO ", JOptionPane.ERROR_MESSAGE);
             }
-            
-             JOptionPane.showMessageDialog(rootPane, "Produto inserido com sucesso",
-                        "CADASTRO EFETUADO ", JOptionPane.INFORMATION_MESSAGE);
-        
-              this.dispose();
             
             jTextField1.setText("");
             jTextArea1.setText("");
             jTextFieldQuantidade.setText("");
             jTextField4.setText("");
             jTextField2.setText("");
+            
+             JOptionPane.showMessageDialog(rootPane, "Produto inserido com sucesso",
+                        "CADASTRO EFETUADO ", JOptionPane.INFORMATION_MESSAGE);
+        
+              this.dispose();
+            
+            
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

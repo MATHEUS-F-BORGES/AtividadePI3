@@ -10,8 +10,7 @@ import javax.swing.JFrame;
 public class TelaInicial extends javax.swing.JFrame {
 
      private AddItem addItem = null;
-     private DelItem delItem = null;
-     private EditItem editItem = null;
+     private Listar listar = null;
         
     public TelaInicial() {
         initComponents();
@@ -32,8 +31,6 @@ public class TelaInicial extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jButtonListar = new javax.swing.JButton();
         jButtonIncuir = new javax.swing.JButton();
-        jButtonAtualizar = new javax.swing.JButton();
-        jButtonExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,20 +51,6 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        jButtonAtualizar.setText("Atualizar");
-        jButtonAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAtualizarActionPerformed(evt);
-            }
-        });
-
-        jButtonExcluir.setText("Excluir");
-        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExcluirActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelTelaInicialLayout = new javax.swing.GroupLayout(jPanelTelaInicial);
         jPanelTelaInicial.setLayout(jPanelTelaInicialLayout);
         jPanelTelaInicialLayout.setHorizontalGroup(
@@ -81,10 +64,8 @@ public class TelaInicial extends javax.swing.JFrame {
                     .addGroup(jPanelTelaInicialLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addGroup(jPanelTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonIncuir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                            .addComponent(jButtonExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButtonIncuir, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(jButtonListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanelTelaInicialLayout.setVerticalGroup(
@@ -98,11 +79,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(jButtonListar)
                 .addGap(27, 27, 27)
                 .addComponent(jButtonIncuir)
-                .addGap(28, 28, 28)
-                .addComponent(jButtonAtualizar)
-                .addGap(29, 29, 29)
-                .addComponent(jButtonExcluir)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,37 +111,19 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void jButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarActionPerformed
        
-       
+       if(listar == null || !listar.isDisplayable()){
+          listar = new Listar();
+        }
+        listar.setVisible(true);
+        listar.toFront();
+        listar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        listar.setSize(610, 410);
+	listar.setResizable(false);
+	listar.setLocationRelativeTo(null); 
+        
+        
         
     }//GEN-LAST:event_jButtonListarActionPerformed
-
-    private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-        
-        if(editItem == null || !editItem.isDisplayable()){
-            editItem = new EditItem();
-        }
-        editItem.setVisible(true);
-        editItem.toFront();
-        editItem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        editItem.setSize(610, 340);
-	editItem.setResizable(false);
-	editItem.setLocationRelativeTo(null);
-	
-    }//GEN-LAST:event_jButtonAtualizarActionPerformed
-
-    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-       
-        if(delItem == null || !delItem.isDisplayable()){
-            delItem = new DelItem();
-        }
-        delItem.setVisible(true);
-        delItem.toFront();
-        delItem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        delItem.setSize(610, 340);
-	delItem.setResizable(false);
-	delItem.setLocationRelativeTo(null);
-        
-    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,8 +161,6 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAtualizar;
-    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonIncuir;
     private javax.swing.JButton jButtonListar;
     private javax.swing.JLabel jLabel1;
