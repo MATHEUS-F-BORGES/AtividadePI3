@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 public final  class Listar extends javax.swing.JFrame {
 
     private EditItem editItem = null;
+    private AddItem addItem = null;
     private List<Produto> prod;
     
     
@@ -38,6 +39,8 @@ public final  class Listar extends javax.swing.JFrame {
         tabelaDeResultados = new javax.swing.JTable();
         jButtonAlterar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
+        jButtonIncuir = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,7 +48,7 @@ public final  class Listar extends javax.swing.JFrame {
         jLabel1.setText("Lista de Produtos");
 
         jButtonSair.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButtonSair.setText("Voltar");
+        jButtonSair.setText("Sair");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSairActionPerformed(evt);
@@ -86,6 +89,22 @@ public final  class Listar extends javax.swing.JFrame {
             }
         });
 
+        jButtonIncuir.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonIncuir.setText("Incluir");
+        jButtonIncuir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIncuirActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButton1.setText("Atualizar Tabela");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,6 +114,8 @@ public final  class Listar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -102,6 +123,8 @@ public final  class Listar extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonIncuir, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -111,23 +134,22 @@ public final  class Listar extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSair)
                     .addComponent(jButtonAlterar)
-                    .addComponent(jButtonExcluir))
+                    .addComponent(jButtonExcluir)
+                    .addComponent(jButtonIncuir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jButtonSairActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
           
@@ -164,7 +186,12 @@ public final  class Listar extends javax.swing.JFrame {
         
          
           }       
-        }  atualizar(); 
+        } else {
+        
+            JOptionPane.showMessageDialog(rootPane,"NENHUM PRODUTO NA BASE DE DADOS"
+                    , "ERRO", JOptionPane.ERROR_MESSAGE);
+        
+        }
         
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
@@ -190,9 +217,38 @@ public final  class Listar extends javax.swing.JFrame {
               }
          
           }        
+        }else {
+        
+            JOptionPane.showMessageDialog(rootPane,"NENHUM PRODUTO NA BASE DE DADOS"
+                    , "ERRO", JOptionPane.ERROR_MESSAGE);
+        
         }                
           
     }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jButtonIncuirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncuirActionPerformed
+
+        if(addItem == null || !addItem.isDisplayable()){
+            addItem = new AddItem();
+        }
+        addItem.setVisible(true);
+        addItem.toFront();
+        addItem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        addItem.setSize(610, 340);
+        addItem.setResizable(false);
+        addItem.setLocationRelativeTo(null);
+        
+        atualizar(); 
+        
+    }//GEN-LAST:event_jButtonIncuirActionPerformed
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonSairActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        atualizar();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,21 +325,21 @@ public final  class Listar extends javax.swing.JFrame {
 
             }
 
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Não há produtos para exibir",
-                    "Não há dados", JOptionPane.ERROR_MESSAGE);
-            
-            
-        }
+        } 
+        
     
     
     
     }
+    
+    
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonExcluir;
+    private javax.swing.JButton jButtonIncuir;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

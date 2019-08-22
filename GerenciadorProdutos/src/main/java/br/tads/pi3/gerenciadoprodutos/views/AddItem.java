@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class AddItem extends javax.swing.JFrame {
 
         private final Produto produto = new Produto();
+    
 	
 	public AddItem() {
 
@@ -199,6 +200,7 @@ public class AddItem extends javax.swing.JFrame {
                 
             try {
                 daoProduto.inserir(produto);
+                
             } catch (Exception ex) {
                 Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(rootPane, "Falha ao cadastrar",
@@ -215,7 +217,7 @@ public class AddItem extends javax.swing.JFrame {
                         "CADASTRO EFETUADO ", JOptionPane.INFORMATION_MESSAGE);
         
               this.dispose();
-            
+             
             
         
     }//GEN-LAST:event_jButton1ActionPerformed
