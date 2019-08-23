@@ -188,7 +188,7 @@ public final  class Listar extends javax.swing.JFrame {
           }       
         } else {
         
-            JOptionPane.showMessageDialog(rootPane,"NENHUM PRODUTO NA BASE DE DADOS"
+            JOptionPane.showMessageDialog(rootPane,"Nenhum produto cadastrado na base de dados"
                     , "ERRO", JOptionPane.ERROR_MESSAGE);
         
         }
@@ -219,7 +219,7 @@ public final  class Listar extends javax.swing.JFrame {
           }        
         }else {
         
-            JOptionPane.showMessageDialog(rootPane,"NENHUM PRODUTO NA BASE DE DADOS"
+            JOptionPane.showMessageDialog(rootPane,"Nenhum produto na base de dados"
                     , "ERRO", JOptionPane.ERROR_MESSAGE);
         
         }                
