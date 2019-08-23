@@ -222,7 +222,7 @@ public class AddItem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+        try{
         produto.setNome(jTextField1.getText());
         produto.setDescricao(jTextArea1.getText());
         int quantidade = Integer.parseInt(jTextFieldQuantidade.getText());
@@ -231,6 +231,8 @@ public class AddItem extends javax.swing.JFrame {
         produto.setpCompra(pCompra);
         float pVenda = Float.parseFloat(jTextField2.getText());
         produto.setpVenda(pVenda);
+        
+        
                 
             try {
                 daoProduto.inserir(produto);
@@ -252,7 +254,12 @@ public class AddItem extends javax.swing.JFrame {
         
               this.dispose();
              
-            
+        }
+        catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "Caracteres inválido nos preços!\nExemplo(4.0)",
+                        "ERRO ", JOptionPane.ERROR_MESSAGE);
+        
+        } 
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -225,7 +225,7 @@ public class EditItem extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
- 
+ try{
         prodAtualizado.setNome(jTextField1.getText());
         prodAtualizado.setDescricao(jTextArea1.getText());
         int quantidade = Integer.parseInt(jTextField3.getText());
@@ -245,7 +245,13 @@ public class EditItem extends javax.swing.JFrame {
                 Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(rootPane, "Falha ao Atualizar",
                         "ERRO ", JOptionPane.ERROR_MESSAGE);
-            }
+            }}
+        catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "Caracteres inválido nos preços!\nExemplo(4.0)",
+                        "ERRO ", JOptionPane.ERROR_MESSAGE);
+        
+        }
+           
             
             
     }//GEN-LAST:event_jButton1ActionPerformed
