@@ -235,7 +235,7 @@ public class AddItem extends javax.swing.JFrame {
         
                 
             try {
-                daoProduto.inserir(produto);
+                daoProduto.inserir(produto);  
                 
             } catch (Exception ex) {
                 Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
