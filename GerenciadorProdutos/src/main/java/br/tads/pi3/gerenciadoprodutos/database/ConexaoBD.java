@@ -13,7 +13,7 @@ public class ConexaoBD {
         Connection conexao = null;
         //Só tenta abrir uma conexao se não existir ou estiver fechada            
         //Endereço de conexao com o banco de dados
-        String dbURL = "jdbc:mysql://localhost:3306/produtobd";
+        String dbURL = "jdbc:mysql://localhost:3307/produtobd";
         //Propriedades para armazenamento de usuário e senha
         Properties properties = new Properties();
         properties.put("user", "root");
